@@ -11,13 +11,16 @@ import math
 
 # 2068550500 国际服，一只彼岸花
 
+
+img = ""
 # 桌面版的标题为“阴阳师-网易游戏”,腾讯手游助手【极速傲引擎】
 app_name = "阴阳师-网易游戏"
 save_name = "D://HAHA.png"
 basePath = "C:\\Users\\Administrator\\PycharmProjects\\yys\\window\\"
-threshold = 0.9  # 匹配度
+threshold = 0.88  # 匹配度
 # 是否是第一次前置窗口
 isHead = True
+
 
 # 传入截图保存位置和命名，比如"D://HAHA.PNG",存储截图，并返回窗口矩形左上右下四个边距。
 def get_array():
@@ -57,15 +60,17 @@ def loadTemps(file_dir):
 
 # 传入文件地址和temps，传回可以点击的点集合
 def AutoFilter(temps):
+    global img
     img = get_array()
     gps = []
     for temp in temps:
-        res = cv2.matchTemplate(img, temp, cv2.TM_CCOEFF_NORMED)
+        res = cv2.matchTemplate(img, temp,
+                                cv2.TM_CCOEFF_NORMED)
         loc = np.where(res >= threshold)  # 匹配程度大于%80的坐标y,x
         for pt in zip(*loc[::-1]):  # *号表示可选参数
             gps.append(pt)
-            if gps:
-                return gps
+    if gps:
+        return gps
 
 
 def checkMatch(temps):
@@ -77,6 +82,7 @@ def checkMatch(temps):
             return False
     else:
         return False
+
 
 # 传入鼠标定位和矩形边距，左键单击
 def click1(gps):
@@ -108,21 +114,43 @@ def cutPic(src_image):
 def callen(egps, fgps):
     x = egps[0] - fgps[0]
     y = egps[1] - fgps[1]
-    return math.sqrt(abs(x) * abs(x) + abs(y) * abs(y))
+    dis = math.sqrt(abs(x) * abs(x) + abs(y) * abs(y))
+    print(str(dis))
+    print(fgps)
+    print('-----------------------')
+    return dis
 
 
 def get_nearest_point(expgps, fightgps):
     distance = 1000
     point = (0, 0)
-    if expgps and fightgps:
-        for e in expgps:
-            for f in fightgps:
-                if distance > callen(e, f):
-                    distance = callen(e, f)
-                    point = f
-        return point
+
+    if expgps:
+        print("识别到经验图标")
+        if fightgps:
+            print("识别到战斗图标")
+            circleimg(expgps, fightgps)
+            for e in expgps:
+                for f in fightgps:
+                    if distance > callen(e, f):
+                        distance = callen(e, f)
+                        point = f
+            return point
+        else:
+            return
     else:
         return
+
+
 def infoimg(img):
     print(type(img))
     print(img.shape)
+
+
+def circleimg(expgps, fgps):
+    for e in expgps:
+        cv2.circle(img, e, 20, (255, 0, 0), 0)
+    for f in fgps:
+        cv2.circle(img, f, 20, (255, 0, 0), 0)
+    cv2.imwrite("D://HAHA1.png", img)
+    print('存储照片')

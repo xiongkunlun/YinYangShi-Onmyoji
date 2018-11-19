@@ -1,7 +1,8 @@
 from window.Util import *
 
-
-img = cv2.imread(save_name)
-infoimg(img)
-for i in img:
-    print(i)
+exppath = basePath + "exp"
+ex = "D://exp.png"
+img = cv2.imread(ex, 0 )
+cv2.imshow("a", img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()

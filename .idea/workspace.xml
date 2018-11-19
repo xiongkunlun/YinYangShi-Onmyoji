@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a9eec30e-63bf-43e7-8199-bf748a7a7867" name="Default" comment="" />
+    <list default="true" id="a9eec30e-63bf-43e7-8199-bf748a7a7867" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/window/exp/exp3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/window/exp/grayexp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/window/exp/midexp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/window/exp/remoteext.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/window/fight/boos2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/window/finish/finish2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/window/finish/reward3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/window/mon/fight1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/window/mon/fightgray.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/window/mon/fightgray1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/window/Outdoor.py" beforeDir="false" afterPath="$PROJECT_DIR$/window/Outdoor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/window/Util.py" beforeDir="false" afterPath="$PROJECT_DIR$/window/Util.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/window/Yuhun.py" beforeDir="false" afterPath="$PROJECT_DIR$/window/Yuhun.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/window/mon/fight.png" beforeDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,8 +30,8 @@
       <file leaf-file-name="Outdoor.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/window/Outdoor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="120" column="24" selection-start-line="120" selection-start-column="24" selection-end-line="120" selection-end-column="24" />
+            <state relative-caret-position="768">
+              <caret line="37" column="22" lean-forward="true" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
               <folding>
                 <element signature="e#10#25#0" expanded="true" />
               </folding>
@@ -23,29 +39,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Yuhun.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/window/Yuhun.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="6" column="12" lean-forward="true" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
-            </state>
-          </provider>
+      <file leaf-file-name="fightgray1.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/window/mon/fightgray1.png">
+          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
-      <file leaf-file-name="Chapter.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/window/Chapter.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-            </state>
-          </provider>
+      <file leaf-file-name="fightgray.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/window/mon/fightgray.png">
+          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
       <file leaf-file-name="Util.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/window/Util.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="507">
-              <caret line="50" column="51" selection-start-line="50" selection-start-column="51" selection-end-line="50" selection-end-column="51" />
+            <state relative-caret-position="535">
+              <caret line="85" lean-forward="true" selection-start-line="85" selection-end-line="85" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -66,6 +74,9 @@
     <findStrings>
       <find>chapter(</find>
     </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -91,10 +102,13 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1325" />
-    <option name="y" value="76" />
-    <option name="width" value="1456" />
-    <option name="height" value="876" />
+    <option name="x" value="1836" />
+    <option name="y" value="85" />
+    <option name="width" value="485" />
+    <option name="height" value="671" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -118,13 +132,25 @@
               <item name="yys" type="b2602c69:ProjectViewProjectNode" />
               <item name="yys" type="462c0819:PsiDirectoryNode" />
               <item name="window" type="462c0819:PsiDirectoryNode" />
-              <item name="checkmove" type="462c0819:PsiDirectoryNode" />
+              <item name="exp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="yys" type="b2602c69:ProjectViewProjectNode" />
               <item name="yys" type="462c0819:PsiDirectoryNode" />
               <item name="window" type="462c0819:PsiDirectoryNode" />
-              <item name="fight" type="462c0819:PsiDirectoryNode" />
+              <item name="finish" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yys" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yys" type="462c0819:PsiDirectoryNode" />
+              <item name="window" type="462c0819:PsiDirectoryNode" />
+              <item name="mon" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yys" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yys" type="462c0819:PsiDirectoryNode" />
+              <item name="window" type="462c0819:PsiDirectoryNode" />
+              <item name="outdoor" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="yys" type="b2602c69:ProjectViewProjectNode" />
@@ -142,19 +168,19 @@
     <property name="settings.editor.selected.configurable" value="settings.github" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Administrator\PycharmProjects\yys\window\mon" />
-      <recent name="C:\Users\Administrator\PycharmProjects\yys\window\exp" />
-      <recent name="C:\Users\Administrator\PycharmProjects\yys\window" />
-      <recent name="C:\Users\Administrator\PycharmProjects\yys\window\fight" />
-      <recent name="C:\Users\Administrator\PycharmProjects\yys\window\checkExp" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Administrator\PycharmProjects\yys\window\checkticket" />
       <recent name="C:\Users\Administrator\PycharmProjects\yys\window\buyticket" />
       <recent name="C:\Users\Administrator\PycharmProjects\yys\window\checksecreate" />
       <recent name="C:\Users\Administrator\PycharmProjects\yys\window\teamfight" />
       <recent name="C:\Users\Administrator\PycharmProjects\yys\window\checkMonsterTeam" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\PycharmProjects\yys\window\mon" />
+      <recent name="C:\Users\Administrator\PycharmProjects\yys\window\exp" />
+      <recent name="C:\Users\Administrator\PycharmProjects\yys\window\finish" />
+      <recent name="C:\Users\Administrator\PycharmProjects\yys\window\fight" />
+      <recent name="C:\Users\Administrator\PycharmProjects\yys\window" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -270,8 +296,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.Outdoor" />
-        <item itemvalue="Python.Yuhun" />
         <item itemvalue="Python.Util" />
+        <item itemvalue="Python.Yuhun" />
         <item itemvalue="Python.Test" />
         <item itemvalue="Python.Juexing" />
       </list>
@@ -294,23 +320,23 @@
     <frame x="1432" y="-813" width="1096" height="1896" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19629629" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1537037" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.2189781" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.4160584" />
-      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5037037" side_tool="true" weight="0.49101123" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Python Console" order="7" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4962963" visible="true" weight="0.49101123" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32956687" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.46266142" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4993464" weight="0.30898875" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.2189781" />
+      <window_info anchor="bottom" id="Message" order="0" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -332,41 +358,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/window/juexing/failed.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/window/juexing/finalOk.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/window/juexing/finish.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/window/juexing/finish4.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/window/finish/finish.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/window/finish/reward.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/window/juexing/finish3.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/window/MyThread.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="16" column="41" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/window/fight/未命名1538141640.png" />
-    <entry file="file://$PROJECT_DIR$/window/outdoor/people.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/window/outdoor/outdoor.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/window/story/2x.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -408,80 +399,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/window/Juexing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/window/eat/未命名1538141640.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/window/GetTopic.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/window/GetPoint.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/window/fight/boss.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/window/fight/boss1.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/window/fight/explore.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/window/fight/failed.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/window/fight/failed1.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/window/fight/finalOk.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/window/fight/finalOk1.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/window/fight/finish.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/window/fight/finish3.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/window/fight/finish4.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/window/fight/miwen.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/window/fight/ready.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/window/fight/ready2.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/window/fight/vctory.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/window/fight/vctory2.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/window/fight/vitory3.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/window/fight/fight.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/window/fight/fight.png" />
     <entry file="file://$PROJECT_DIR$/window/checkmove/checkmove.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -495,6 +431,64 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/window/fight/boss1.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/window/fight/boss.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/window/fight/vitory3.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/window/fight/vctory2.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/window/fight/vctory.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/window/fight/ready2.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/window/fight/miwen.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/window/fight/finish3.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/window/fight/finalOk.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/window/fight/finalOk1.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/window/fight/failed.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/window/finish/reward.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/window/finish/finish.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/window/exp/remoteext.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/window/exp/midexp.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/window/exp/exp.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/window/finish/reward3.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/window/Yuhun.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/window/AutoPassDialog.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -502,34 +496,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/window/Outdoor.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="120" column="24" selection-start-line="120" selection-start-column="24" selection-end-line="120" selection-end-column="24" />
-          <folding>
-            <element signature="e#10#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/window/GetTopic.py">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/window/Yuhun.py">
+    <entry file="file://$PROJECT_DIR$/window/GetPoint.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="6" column="12" lean-forward="true" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
+        <state relative-caret-position="225">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/window/Chapter.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/window/Juexing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/window/mon/mon2.png" />
+    <entry file="file://$PROJECT_DIR$/window/mon/fight5.png" />
+    <entry file="file://$PROJECT_DIR$/window/mon/fight.png" />
+    <entry file="file://$PROJECT_DIR$/window/mon/fightgray.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/window/mon/fightgray1.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/window/Outdoor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="768">
+          <caret line="37" column="22" lean-forward="true" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
+          <folding>
+            <element signature="e#10#25#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/window/Util.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="507">
-          <caret line="50" column="51" selection-start-line="50" selection-start-column="51" selection-end-line="50" selection-end-column="51" />
+        <state relative-caret-position="535">
+          <caret line="85" lean-forward="true" selection-start-line="85" selection-end-line="85" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>

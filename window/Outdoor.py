@@ -20,7 +20,7 @@ checkSecreatePath = basePath + "checksecreate"
 checkTicketPath = basePath + "checkticket"
 buyTicketPath = basePath + "buyticket"
 expPath = basePath + "exp"
-monPath = basePath +"mon"
+monPath = basePath + "mon"
 
 lastTime = 0
 # 神秘商店出现的最长时间，单位为分钟
@@ -33,9 +33,8 @@ ticketTemp = loadTemps(checkTicketPath)
 
 expTemp = loadTemps(expPath)
 monsterTemp = loadTemps(monPath)
-
-
-#功能性点击按钮，除了打怪
+total = 0
+# 功能性点击按钮，除了打怪
 functionTemps = loadTemps(fightPath)
 
 
@@ -114,6 +113,10 @@ def checkSecreateStore():
 
 # 根据选择的章节temp，找到图标，点击探索，进入场景
 def intoChapter():
+    global total
+    global diretion
+    total = 0
+    diretion = 0
     # 这里有问题，不能获取到章节图标的定位。暂时采取固定坐标的方式
     ps1 = (870, 510)
     ps2 = (707, 480)
@@ -131,10 +134,14 @@ def intoChapter():
 
 # 战斗
 def fight():
+    global total
+    global diretion
     expgps = AutoFilter(expTemp)
     mongps = AutoFilter(monsterTemp)
     point = get_nearest_point(expgps, mongps)
     if point:
+        print("点击")
+        print(point)
         click1([point])
     gps = AutoFilter(functionTemps)
     click1(gps)
@@ -146,22 +153,31 @@ def fight():
         click1(gps1)
         time.sleep(3)
         click1(gps1)
+        total = 0
+        diretion = 0
     move_temps = loadTemps(checkmovePath)
     if checkMatch(move_temps):
-        global diretion
         if 0 <= diretion < 11:
-            gs = [(780, 550), (780, 600)]
+            gs = [(800, 530), (780, 600)]
             click1(gs)
             diretion = diretion + 1
+            total = total + 1
             print("向右移动第%s次" % str(diretion))
         elif diretion == 11:
             diretion = -10
         else:
             diretion = diretion + 1
-            gs = [(300, 550), (600, 550)]
+            gs = [(280, 530), (600, 550)]
             click1(gs)
             print("向左移动第%s次" % str(diretion + 11))
-    time.sleep(1)
+            total = total + 1
+    time.sleep(0.5)
+    if total > 22:
+        ex1 = (40, 80)
+        ex2 = (40, 85)
+        gps1 = (ex1, ex2)
+        click1(gps1)
+        total = 0
 
 
 # 选择章节，返回章节的temp
