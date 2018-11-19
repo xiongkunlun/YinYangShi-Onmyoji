@@ -1,13 +1,15 @@
-import win32con
-import win32gui
-import win32api
-from PIL import ImageGrab
 import time
 import random
-import cv2
-import numpy as np
 import os
 import math
+import win32ui
+from ctypes import windll
+from PIL import Image
+import numpy as np
+import cv2
+import win32gui
+import win32api
+import win32con
 
 # 2068550500 国际服，一只彼岸花
 
@@ -20,30 +22,81 @@ basePath = "C:\\Users\\Administrator\\PycharmProjects\\yys\\window\\"
 threshold = 0.88  # 匹配度
 # 是否是第一次前置窗口
 isHead = True
+hwnd = win32gui.FindWindow(None, app_name)
 
 
 # 传入截图保存位置和命名，比如"D://HAHA.PNG",存储截图，并返回窗口矩形左上右下四个边距。
 def get_array():
     global isHead
     # 根据窗口名字，查找到窗口，返回句柄
-    hwnd = win32gui.FindWindow(None, app_name)
     if not hwnd:
         print('window not found!')
         exit(0)
-    else:
+    elif isHead:
+        # 这个地方有问题，准备做一个最小化就自动还原
+        # if win32gui.IsIconic(hwnd):
+        #     #     win32gui.ShowWindow(hwnd, win32con.SW_SHOWNORMAL)
+        #     win32gui.ShowWindow(hwnd, 0)
+        #     time.sleep(0.5)
         if isHead:
-            win32gui.ShowWindow(hwnd, win32con.SW_RESTORE)
-            # 强行显示界面
-            win32gui.SetForegroundWindow(hwnd)  # 将窗口提到最前
-            isHead = False
-        # # 截屏
-        game_rect = win32gui.GetWindowRect(hwnd)  # 获取句柄所在矩形
-        # print('当前句柄为:%s,窗口名为:%s' % (hwnd, app_name))
-        # print(game_rect)
-        src_image = ImageGrab.grab(game_rect)  # 根据矩形位置，截取图片
-        img = src_image.convert('L')
-        image = np.asarray(img)  # 从截图获得np
-        return image
+            # win32gui.ShowWindow(hwnd, win32con.SW_RESTORE)
+            # # 强行显示界面
+            # win32gui.SetForegroundWindow(hwnd)  # 将窗口提到最前
+            # isHead = False
+            # # 截屏
+            left, top, right, bot = win32gui.GetWindowRect(
+                hwnd)
+            w = right - left
+            h = bot - top
+
+            # 返回句柄窗口的设备环境、覆盖整个窗口，包括非客户区，标题栏，菜单，边框
+            hwndDC = win32gui.GetWindowDC(hwnd)
+
+            # 创建设备描述表
+            mfcDC = win32ui.CreateDCFromHandle(hwndDC)
+
+            # 创建内存设备描述表--compatible兼容的设备描述表
+            saveDC = mfcDC.CreateCompatibleDC()
+
+            # 创建位图对象准备保存图片
+            saveBitMap = win32ui.CreateBitmap()
+            # 为bitmap开辟空间
+            saveBitMap.CreateCompatibleBitmap(mfcDC, w, h)
+            saveDC.SelectObject(saveBitMap)
+
+            # 截图至内存设备描述表
+            img_dc = mfcDC
+            mem_dc = saveDC
+            mem_dc.BitBlt((0, 0), (w, h), img_dc,
+                          (100, 100),
+                          win32con.SRCCOPY)
+
+            # 改变下行决定是否截图整个窗口，可以自己测试下
+            # result = windll.user32.PrintWindow(hwnd, saveDC.GetSafeHdc(), 1)
+            result = windll.user32.PrintWindow(hwnd,
+                                               saveDC.GetSafeHdc(),
+                                               0)
+            # 获取位图信息
+            bmpinfo = saveBitMap.GetInfo()
+            bmpstr = saveBitMap.GetBitmapBits(True)
+            # 生成图像
+            im = Image.frombuffer(
+                'RGB',
+                (bmpinfo['bmWidth'], bmpinfo['bmHeight']),
+                bmpstr, 'raw', 'BGRX', 0, 1)
+            src_img = im.convert('L')
+            image = np.asarray(src_img)
+            # cv2.imshow("", image)
+            # cv2.waitKey(0)
+            # # # 存储截图
+            # if result == 1:
+            #     im.save("D://1/test.png")
+            # 内存释放
+            win32gui.DeleteObject(saveBitMap.GetHandle())
+            saveDC.DeleteDC()
+            mfcDC.DeleteDC()
+            win32gui.ReleaseDC(hwnd, hwndDC)
+            return image
 
 
 # 加载文件夹下所有图标，返回temps集合
@@ -90,15 +143,17 @@ def click1(gps):
         if gps[0]:
             x = random.randint(10, 20) + gps[0][0]
             y = random.randint(5, 10) + gps[0][1]
-            win32api.SetCursorPos((x, y))
-            # time.sleep(0.1)
-            # 下面的参数分别为：（事件类型，x坐标，y坐标，滚轮滑动数量，附加32位值）
-            win32api.mouse_event(
-                win32con.MOUSEEVENTF_LEFTDOWN, x, y, 0, 0)
-            time.sleep(random.uniform(0.2, 0.4))
-            win32api.mouse_event(
-                win32con.MOUSEEVENTF_LEFTUP, x, y, 0, 0)
-
+            point = (x, y)
+            tmp = win32api.MAKELONG(point[0], point[1])
+            win32api.SendMessage(hwnd,
+                                 win32con.WM_MOUSEMOVE,
+                                 win32con.MK_LBUTTON, tmp)
+            win32api.SendMessage(hwnd,
+                                 win32con.WM_LBUTTONDOWN,
+                                 win32con.MK_LBUTTON, tmp)
+            win32api.SendMessage(hwnd,
+                                 win32con.WM_LBUTTONUP,
+                                 win32con.MK_LBUTTON, tmp)
 
 # 指定大小截图，此处不使用
 def cutPic(src_image):
@@ -115,9 +170,6 @@ def callen(egps, fgps):
     x = egps[0] - fgps[0]
     y = egps[1] - fgps[1]
     dis = math.sqrt(abs(x) * abs(x) + abs(y) * abs(y))
-    print(str(dis))
-    print(fgps)
-    print('-----------------------')
     return dis
 
 

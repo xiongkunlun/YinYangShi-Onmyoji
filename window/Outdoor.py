@@ -43,7 +43,6 @@ def outdoor():
     if count < 100000:
         if type == 3:
             while True:
-                print("检查野外")
                 if checkOut():
                     time.sleep(1)
                     if checkMonster():
@@ -80,7 +79,6 @@ def outdoor():
                     fight()
                     count = count + 1
                 else:
-                    print("战斗")
                     fight()
                     count = count + 1
 
@@ -155,6 +153,7 @@ def fight():
         click1(gps1)
         total = 0
         diretion = 0
+        return
     move_temps = loadTemps(checkmovePath)
     if checkMatch(move_temps):
         if 0 <= diretion < 11:
@@ -172,7 +171,7 @@ def fight():
             print("向左移动第%s次" % str(diretion + 11))
             total = total + 1
     time.sleep(0.5)
-    if total > 22:
+    if total > 20:
         ex1 = (40, 80)
         ex2 = (40, 85)
         gps1 = (ex1, ex2)
