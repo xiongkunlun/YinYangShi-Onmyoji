@@ -1,6 +1,6 @@
 import math
 
-from window.Util import *
+from window.Core import *
 
 # 2068550500 国际服，一只彼岸花
 

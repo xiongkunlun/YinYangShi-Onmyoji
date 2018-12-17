@@ -1,5 +1,5 @@
 # 觉醒暂时只能手动选择某一个副本，进入到组队界面，然后循环开始，循环邀请
-from window.Util import *
+from window.Core import *
 
 juexingPath = basePath + "juexing/"
 teaminvitePath = basePath + "teaminvite/"
@@ -37,7 +37,7 @@ def checkMenber():
                 print("1")
                 pass
             else:
-                time.sleep(1)
+                time.sleep(0.5)
                 click1(fightgps2)
                 time.sleep(random.uniform(1, 1.5))
                 teamJuexing()

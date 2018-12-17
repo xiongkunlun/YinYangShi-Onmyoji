@@ -1,4 +1,4 @@
-from window.Util import *
+from window.Core import *
 
 storyPath = basePath + "story/"
 homePath = basePath + "home/"
@@ -23,16 +23,11 @@ def home():
 
 # 检查有没剧情
 def checkStory():
-    storyTemp = cv2.imread(homePath + "story.png", 0)
+    storyTemp = cv2.imread(homePath + "dialog1.png", 0)
     if checkMatch(storyTemp):
         print("发现新剧情，进入剧情")
-        img = cv2.imread(save_name, 0)
-        res = cv2.matchTemplate(img, storyTemp,
-                                cv2.TM_CCOEFF_NORMED)
-        gps = []
-        loc = np.where(res >= threshold)  # 匹配程度大于%80的坐标y,x
-        for pt in zip(*loc[::-1]):  # *号表示可选参数
-            gps.append(pt)
+        gps = AutoFilter(storyTemp)
+        circleimg(gps)
         click1(gps)
         time.sleep(1)
         return True
@@ -43,8 +38,11 @@ def checkStory():
 def intoStory():
     print("当前场景为剧情中")
     temps = loadTemps(storyPath)
+
     gps = AutoFilter(temps)
-    click1(gps)
+    if gps:
+        circleimg(gps)
+        click1(gps)
 
 
 # 检查当前是否为庭院

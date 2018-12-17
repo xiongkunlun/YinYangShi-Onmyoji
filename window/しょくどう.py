@@ -1,4 +1,4 @@
-from window.Util import *
+from window.Core import *
 
 juexingPath = basePath + "juexing/"
 teaminvitePath = basePath + "teaminvite/"

@@ -1,4 +1,4 @@
-from window.Util import *
+from window.Core import *
 
 exppath = basePath + "exp"
 ex = "D://exp.png"

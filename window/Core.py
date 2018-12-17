@@ -19,15 +19,18 @@ img = ""
 app_name = "阴阳师-网易游戏"
 save_name = "D://HAHA.png"
 basePath = "C:\\Users\\Administrator\\PycharmProjects\\yys\\window\\"
-threshold = 0.88  # 匹配度
+threshold = 0.95  # 匹配度
 # 是否是第一次前置窗口
 isHead = True
 hwnd = win32gui.FindWindow(None, app_name)
+global_left = 0
+global_top = 0
+global_size = [0, 0]
 
 
 # 传入截图保存位置和命名，比如"D://HAHA.PNG",存储截图，并返回窗口矩形左上右下四个边距。
 def get_array():
-    global isHead
+    global isHead,global_top,global_left,global_size
     # 根据窗口名字，查找到窗口，返回句柄
     if not hwnd:
         print('window not found!')
@@ -46,6 +49,9 @@ def get_array():
             # # 截屏
             left, top, right, bot = win32gui.GetWindowRect(
                 hwnd)
+            global_left = left
+            global_top = top
+            global_size = (left, top)
             w = right - left
             h = bot - top
 
@@ -88,7 +94,7 @@ def get_array():
             image = np.asarray(src_img)
             # cv2.imshow("", image)
             # cv2.waitKey(0)
-            # # # 存储截图
+            # # 存储截图
             # if result == 1:
             #     im.save("D://1/test.png")
             # 内存释放
@@ -141,10 +147,13 @@ def checkMatch(temps):
 def click1(gps):
     if gps:
         if gps[0]:
-            x = random.randint(10, 20) + gps[0][0]
-            y = random.randint(5, 10) + gps[0][1]
+            x = gps[0][0]
+            y = gps[0][1]
             point = (x, y)
-            tmp = win32api.MAKELONG(point[0], point[1])
+            tmp = win32api.MAKELONG(point[0],
+                                    point[1])
+            print(global_left + point[0])
+            print(global_top + point[1])
             win32api.SendMessage(hwnd,
                                  win32con.WM_MOUSEMOVE,
                                  win32con.MK_LBUTTON, tmp)
@@ -154,6 +163,7 @@ def click1(gps):
             win32api.SendMessage(hwnd,
                                  win32con.WM_LBUTTONUP,
                                  win32con.MK_LBUTTON, tmp)
+
 
 # 指定大小截图，此处不使用
 def cutPic(src_image):
@@ -181,7 +191,7 @@ def get_nearest_point(expgps, fightgps):
         print("识别到经验图标")
         if fightgps:
             print("识别到战斗图标")
-            circleimg(expgps, fightgps)
+            # circ  leimg(expgps, fightgps)
             for e in expgps:
                 for f in fightgps:
                     if distance > callen(e, f):
@@ -204,5 +214,13 @@ def circleimg(expgps, fgps):
         cv2.circle(img, e, 20, (255, 0, 0), 0)
     for f in fgps:
         cv2.circle(img, f, 20, (255, 0, 0), 0)
+    cv2.imwrite("D://HAHA1.png", img)
+    print('存储照片')
+
+
+#传入一个gps，进行标点存储
+def circleimg(points):
+    for p in points:
+        cv2.circle(img, p, 20, (255, 0, 0), 0)
     cv2.imwrite("D://HAHA1.png", img)
     print('存储照片')
