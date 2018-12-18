@@ -1,8 +1,7 @@
-#野外自动选26章，自动战斗
+# 野外自动选26章，自动战斗
 import datetime
 
 from window.Core import *
-import threading
 
 bossPath = basePath + "/boss"
 bossTemps = loadTemps(bossPath)
@@ -44,7 +43,7 @@ total = 0
 # 功能性点击按钮，除了打怪
 functionTemps = loadTemps(fightPath)
 
-#1=经验怪，2=金币怪，3=红达摩
+# 1=经验怪，2=金币怪，3=红达摩
 fightType = 1
 
 
@@ -253,6 +252,3 @@ def goOutDoor():
 
 if __name__ == '__main__':
     outdoor()
-        # goOutDoor()
-    # if goOutDoor():
-    #     outdoor()
