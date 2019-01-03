@@ -19,7 +19,7 @@ img = ""
 app_name = "阴阳师-网易游戏"
 save_name = "D://HAHA.png"
 basePath = "C:\\Users\\Administrator\\PycharmProjects\\yys\\window\\"
-threshold = 0.95  # 匹配度
+threshold = 0.89  # 匹配度
 # 是否是第一次前置窗口
 isHead = True
 hwnd = win32gui.FindWindow(None, app_name)
@@ -93,10 +93,9 @@ def get_array():
             src_img = im.convert('L')
             image = np.asarray(src_img)
             # cv2.imshow("", image)
-            # cv2.waitKey(0)
             # # 存储截图
-            # if result == 1:
-            #     im.save("D://1/test.png")
+            if result == 1:
+                im.save("D://1/test.png")
             # 内存释放
             win32gui.DeleteObject(saveBitMap.GetHandle())
             saveDC.DeleteDC()
@@ -147,8 +146,8 @@ def checkMatch(temps):
 def click1(gps):
     if gps:
         if gps[0]:
-            x = gps[0][0]
-            y = gps[0][1]
+            x = gps[0][0]+5
+            y = gps[0][1]+5
             point = (x, y)
             tmp = win32api.MAKELONG(point[0],
                                     point[1])

@@ -6,7 +6,7 @@ pkPath = basePath + "PK"
 
 pkTemp = loadTemps(pkPath)
 exitTmep = cv2.imread(pkPath + "/exit.png", 0)
-fightTmep = cv2.imread(pkPath + "/fight.png", 0)
+fightTmep = cv2.imread(pkPath + "/fight6.png", 0)
 okTmep = cv2.imread(pkPath + "/ok.png", 0)
 failTmep = loadTemps(pkPath + "/result")
 

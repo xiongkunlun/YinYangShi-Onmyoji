@@ -11,6 +11,8 @@ chapterPath = basePath + "chapter/"
 chapterNum = 4
 fightPath = basePath + "fight/"
 fightTem = loadTemps(fightPath)
+fightallPath = basePath + "fightall/"
+fightallTemp = loadTemps(fightallPath)
 outdoorPath = basePath + "outdoor/"
 type = 3
 checkmovePath = basePath + "checkmove/"
@@ -146,7 +148,7 @@ def fight():
     bossgps = AutoFilter(bossTemps)
     if bossgps:
         click1(bossgps)
-        time.sleep(3)
+        time.sleep(1)
         click1(bossgps)
     expgps = 0
     if fightType == 1:
@@ -154,7 +156,7 @@ def fight():
     elif fightType == 2:
         expgps = AutoFilter(coinTemp)
     elif fightType == 3:
-        expgps = AutoFilter(fightTem)
+        expgps = AutoFilter(fightallTemp)
     mongps = AutoFilter(monsterTemp)
     point = get_nearest_point(expgps, mongps)
     if point:
@@ -169,7 +171,7 @@ def fight():
         print("奖励结算，休息3秒")
         gps1 = AutoFilter(finish_temps)
         click1(gps1)
-        time.sleep(3)
+        time.sleep(1.5)
         click1(gps1)
         total = 0
         return
