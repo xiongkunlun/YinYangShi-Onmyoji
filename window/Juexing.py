@@ -8,7 +8,7 @@ teamfightPath = basePath + "teamfight/"
 
 def team():
     count = 0
-    while count< 5000:
+    while count < 500000:
         checkMenber()
         # teamJuexing()
         # checkMenber()
@@ -37,9 +37,9 @@ def checkMenber():
                 print("1")
                 pass
             else:
-                time.sleep(0.5)
+                time.sleep(0.3)
                 click1(fightgps2)
-                time.sleep(random.uniform(0.5, 1))
+                time.sleep(random.uniform(0.3, 0.5))
                 teamJuexing()
     else:
         teamJuexing()

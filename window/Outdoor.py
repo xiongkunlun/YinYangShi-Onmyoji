@@ -3,6 +3,7 @@ import datetime
 
 from window.Core import *
 
+13018130221
 bossPath = basePath + "/boss"
 bossTemps = loadTemps(bossPath)
 
