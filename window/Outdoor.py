@@ -3,7 +3,7 @@ import datetime
 
 from window.Core import *
 
-13018130221
+
 bossPath = basePath + "/boss"
 bossTemps = loadTemps(bossPath)
 
@@ -47,7 +47,7 @@ total = 0
 functionTemps = loadTemps(fightPath)
 
 # 1=经验怪，2=金币怪，3=红达摩
-fightType = 1
+fightType = 2
 
 
 def outdoor():
@@ -163,6 +163,7 @@ def fight():
     if point:
         print("点击")
         print(point)
+        circleimg(expgps)
         click1([point])
     gps = AutoFilter(functionTemps)
     click1(gps)
@@ -254,4 +255,5 @@ def goOutDoor():
 
 
 if __name__ == '__main__':
+    print("开始跑")
     outdoor()

@@ -8,7 +8,7 @@ teamfightPath = basePath + "teamfight/"
 
 def team():
     count = 0
-    while count < 500000:
+    while count < 1000000:
         checkMenber()
         # teamJuexing()
         # checkMenber()
@@ -16,6 +16,7 @@ def team():
         count = count + 1
         print(count)
     exit()
+
 
 # 组队界面里，自动开始，结束后自动邀请
 def teamJuexing():
@@ -30,7 +31,7 @@ def checkMenber():
     fightgps2 = AutoFilter(temp2)
     temp = loadTemps(teaminvitePath)
     invitegps = AutoFilter(temp)
-    if fightgps2 :
+    if fightgps2:
         if len(fightgps2) > 0:
             if 500 < invitegps[0][0] < 701 and 0 < \
                     invitegps[0][1] < 521:

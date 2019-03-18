@@ -13,8 +13,8 @@ import win32con
 
 # 2068550500 国际服，一只彼岸花
 
-
 img = ""
+login_name = '登陆'
 # 桌面版的标题为“阴阳师-网易游戏”,腾讯手游助手【极速傲引擎】
 app_name = "阴阳师-网易游戏"
 save_name = "D://HAHA.png"
@@ -22,14 +22,14 @@ basePath = "C:\\Users\\Administrator\\PycharmProjects\\yys\\window\\"
 threshold = 0.89  # 匹配度
 # 是否是第一次前置窗口
 isHead = True
-hwnd = win32gui.FindWindow(None, app_name)
+app_hwnd = win32gui.FindWindow(None, app_name)
 global_left = 0
 global_top = 0
 global_size = [0, 0]
 
 
 # 传入截图保存位置和命名，比如"D://HAHA.PNG",存储截图，并返回窗口矩形左上右下四个边距。
-def get_array():
+def get_array(hwnd = app_hwnd):
     global isHead,global_top,global_left,global_size
     # 根据窗口名字，查找到窗口，返回句柄
     if not hwnd:
@@ -93,10 +93,12 @@ def get_array():
             src_img = im.convert('L')
             image = np.asarray(src_img)
             # cv2.imshow("", image)
+            # cv2.waitKey(0)
             # # 存储截图
             if result == 1:
                 im.save("D://1/test.png")
             # 内存释放
+
             win32gui.DeleteObject(saveBitMap.GetHandle())
             saveDC.DeleteDC()
             mfcDC.DeleteDC()
@@ -105,7 +107,7 @@ def get_array():
 
 
 # 加载文件夹下所有图标，返回temps集合
-def loadTemps(file_dir):
+def loadTemps(file_dir,hwnd = app_hwnd):
     L = []
     for root, dirs, files in os.walk(file_dir):
         for file in files:
@@ -117,9 +119,9 @@ def loadTemps(file_dir):
 
 
 # 传入文件地址和temps，传回可以点击的点集合
-def AutoFilter(temps):
+def AutoFilter(temps,hwnd = app_hwnd):
     global img
-    img = get_array()
+    img = get_array(hwnd)
     gps = []
     for temp in temps:
         res = cv2.matchTemplate(img, temp,
@@ -143,7 +145,7 @@ def checkMatch(temps):
 
 
 # 传入鼠标定位和矩形边距，左键单击
-def click1(gps):
+def click1(gps,hwnd = app_hwnd):
     if gps:
         if gps[0]:
             x = gps[0][0]+5

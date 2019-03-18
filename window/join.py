@@ -16,7 +16,7 @@ def AutoJoin():
         fgps = AutoFilter(refreshTemp)
         if gps:
             if gps[0]:
-                circleimg(gps)
+                # circleimg(gps)   #存储照片
                 click1(gps)
         elif fgps:
             if fgps:

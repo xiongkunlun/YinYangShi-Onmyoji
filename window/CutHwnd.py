@@ -11,70 +11,69 @@ import win32gui
 import win32api
 import win32con
 
+login_app = '登录'
 app_name = "阴阳师-网易游戏"
 
 # 获取要截取窗口的句柄
-hwnd = win32gui.FindWindow(None, app_name)
+# hwnd = win32gui.FindWindow(None, login_app)
+
+
+def deal_with_hwnd(hwnd):
+    left, top, right, bot = win32gui.GetWindowRect(hwnd)
+    w = right - left
+    h = bot - top
+    # 返回句柄窗口的设备环境、覆盖整个窗口，包括非客户区，标题栏，菜单，边框
+    hwndDC = win32gui.GetWindowDC(hwnd)
+    # 创建设备描述表
+    mfcDC = win32ui.CreateDCFromHandle(hwndDC)
+    # 创建内存设备描述表--compatible兼容的设备描述表
+    saveDC = mfcDC.CreateCompatibleDC()
+    # 创建位图对象准备保存图片
+    saveBitMap = win32ui.CreateBitmap()
+    # 为bitmap开辟空间
+    saveBitMap.CreateCompatibleBitmap(mfcDC, w, h)
+    saveDC.SelectObject(saveBitMap)
+    # 截图至内存设备描述表
+    img_dc = mfcDC
+    mem_dc = saveDC
+    mem_dc.BitBlt((0, 0), (w, h), img_dc, (100, 100),
+                  win32con.SRCCOPY)
+    # 改变下行决定是否截图整个窗口，可以自己测试下
+    # result = windll.user32.PrintWindow(hwnd, saveDC.GetSafeHdc(), 1)
+    result = windll.user32.PrintWindow(hwnd,
+                                       saveDC.GetSafeHdc(),
+                                       0)
+    print(result)
+    # 获取位图信息
+    bmpinfo = saveBitMap.GetInfo()
+    bmpstr = saveBitMap.GetBitmapBits(True)
+    # 生成图像
+    im = Image.frombuffer(
+        'RGB',
+        (bmpinfo['bmWidth'], bmpinfo['bmHeight']),
+        bmpstr, 'raw', 'BGRX', 0, 1)
+    src_img = im.convert('L')
+    image = np.asarray(src_img)
+    # # 存储截图
+    if result == 1:
+        # PrintWindow Succeeded
+        # im.save("D://1/test.png")
+        im.show()
+    # 内存释放
+    win32gui.DeleteObject(saveBitMap.GetHandle())
+    saveDC.DeleteDC()
+    mfcDC.DeleteDC()
+    win32gui.ReleaseDC(hwnd, hwndDC)
+
 
 # 获取句柄窗口的大小信息
 # 可以通过修改该位置实现自定义大小截图
-left, top, right, bot = win32gui.GetWindowRect(hwnd)
-w = right - left
-h = bot - top
 
-# 返回句柄窗口的设备环境、覆盖整个窗口，包括非客户区，标题栏，菜单，边框
-hwndDC = win32gui.GetWindowDC(hwnd)
-
-# 创建设备描述表
-mfcDC  = win32ui.CreateDCFromHandle(hwndDC)
-
-# 创建内存设备描述表--compatible兼容的设备描述表
-saveDC = mfcDC.CreateCompatibleDC()
-
-# 创建位图对象准备保存图片
-saveBitMap = win32ui.CreateBitmap()
-# 为bitmap开辟空间
-saveBitMap.CreateCompatibleBitmap(mfcDC, w, h)
-saveDC.SelectObject(saveBitMap)
-
-# 截图至内存设备描述表
-img_dc = mfcDC
-mem_dc = saveDC
-mem_dc.BitBlt((0, 0), (w, h), img_dc, (100, 100), win32con.SRCCOPY)
-
-# 改变下行决定是否截图整个窗口，可以自己测试下
-# result = windll.user32.PrintWindow(hwnd, saveDC.GetSafeHdc(), 1)
-result = windll.user32.PrintWindow(hwnd, saveDC.GetSafeHdc(), 0)
-print(result)
-
-# 获取位图信息
-bmpinfo = saveBitMap.GetInfo()
-bmpstr = saveBitMap.GetBitmapBits(True)
-# 生成图像
-im = Image.frombuffer(
-    'RGB',
-    (bmpinfo['bmWidth'], bmpinfo['bmHeight']),
-    bmpstr, 'raw', 'BGRX', 0, 1)
-src_img = im.convert('L')
-image = np.asarray(src_img)
-
-# # 存储截图
-# if result == 1:
-#     #PrintWindow Succeeded
-#     im.save("D://1/test.png")
-#     # im.show()
-
-# 内存释放
-win32gui.DeleteObject(saveBitMap.GetHandle())
-saveDC.DeleteDC()
-mfcDC.DeleteDC()
-win32gui.ReleaseDC(hwnd, hwndDC)
-
-p1 = (870, 510)
-tmp = win32api.MAKELONG(p1[0], p1[1])
-win32api.SendMessage(hwnd, win32con.WM_MOUSEMOVE, win32con.MK_LBUTTON, tmp)
-win32api.SendMessage(hwnd, win32con.WM_LBUTTONDOWN, win32con.MK_LBUTTON, tmp)
-win32api.SendMessage(hwnd, win32con.WM_LBUTTONUP, win32con.MK_LBUTTON, tmp)
+# p1 = (870, 510)
+# tmp = win32api.MAKELONG(p1[0], p1[1])
+# win32api.SendMessage(hwnd, win32con.WM_MOUSEMOVE, win32con.MK_LBUTTON, tmp)
+# win32api.SendMessage(hwnd, win32con.WM_LBUTTONDOWN, win32con.MK_LBUTTON, tmp)
+# win32api.SendMessage(hwnd, win32con.WM_LBUTTONUP, win32con.MK_LBUTTON, tmp)
 
 # # PIL简单实现截图，只能截图最上层窗口
 # from PIL import Image,ImageGrab
@@ -90,5 +89,24 @@ win32api.SendMessage(hwnd, win32con.WM_LBUTTONUP, win32con.MK_LBUTTON, tmp)
 # img.shape = (height,width,4)
 # cv2.cvtColor(img, cv2.COLOR_BGRA2RGB)
 #
-# 图像存储应用numpy
 
+
+
+
+# 遍历窗口所有句柄，并展示句柄照片
+# 图像存储应用numpy
+hwnd_title = dict()
+
+def get_all_hwnd(hwnd, mouse):
+    if win32gui.IsWindow(hwnd) and win32gui.IsWindowEnabled(
+            hwnd) and win32gui.IsWindowVisible(hwnd):
+        hwnd_title.update(
+            {hwnd: win32gui.GetWindowText(hwnd)})
+
+
+win32gui.EnumWindows(get_all_hwnd, 0)
+
+for h, t in hwnd_title.items():
+    if t is not "":
+        # deal_with_hwnd(h)
+        print(h, t)
